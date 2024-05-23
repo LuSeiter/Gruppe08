@@ -18,6 +18,7 @@ PWM::~PWM() // @suppress("Class members should be properly initialized")
 
 }
 
+
 void PWM::init(System *sys, GPIO *dir, uint32_t portBase, uint32_t pin,
                bool invert, uint32_t freq)
 {
@@ -28,9 +29,10 @@ void PWM::init(System *sys, GPIO *dir, uint32_t portBase, uint32_t pin,
      *
      * sys:        Pointer to the current System instance. Needed to get CPU
      *             clock frequency.
+     * dir:        Zeiger auf den Richtungspin des Motors.
      * portBase:   Base address of the port with the output pins
      *             (e.g. GPIO_PORTA_BASE).
-     * pin1, pin2: The two output pins this object will use (e.g. GPIO_PIN_6).
+     * pin1:       The two output pins this object will use (e.g. GPIO_PIN_6).
      *             The lower pin will be used for forwards, the higher for
      *             backwards.
      * freq:       optional parameter to set the PWM frequency. Default: 5kHz
@@ -43,7 +45,9 @@ void PWM::init(System *sys, GPIO *dir, uint32_t portBase, uint32_t pin,
     // PWM::setDuty(float duty) uses floats
     sys->enableFPU();
 
-    //TODO: Put your code here -> A3.1
+   
+   //TODO: Put your code here -> A3.1
+
 }
 
 void PWM::setFreq(uint32_t freq)
@@ -53,11 +57,9 @@ void PWM::setFreq(uint32_t freq)
      *
      * freq: frequency in Hz. A too low frequency will deactivate the outputs.
      */
-    /*
-     * PWM Bonus Task: Determine optimal PWM Unit Clock Divisor
-     */
 
     //TODO: Put your code here -> A3.1
+
 }
 
 void PWM::setDuty(float duty)
@@ -68,11 +70,12 @@ void PWM::setDuty(float duty)
      * the reverse pin, positive values the forward pin. A value of 0.0f (or
      * very close to 0.0f) deactivates the output.
      *
-     * duty: duty cycle for the left motor between -1.0f and 1.0f.
+     * duty: duty cycle for the motor between -1.0f and 1.0f.
      */
 
-    //TODO: Put your code here -> A3.1
-}
 
+    //TODO: Put your code here -> A3.1
+
+}
 
 #endif
