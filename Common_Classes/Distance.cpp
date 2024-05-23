@@ -36,7 +36,7 @@ void Distance::trigger()
      * of minimum 10 us occurs at the trigger pin.
      */
 
-    //TODO: Put your code here -> A3.1
+    //TODO: Put your code here -> A5.1
 
 }
 void Distance::edgeDetect()
