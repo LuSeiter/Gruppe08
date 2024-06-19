@@ -1,0 +1,10 @@
+"./GPIO.obj"
+"./PWM.obj"
+"./System.obj"
+"./main.obj"
+"./tm4c123gh6pm_startup_ccs.obj"
+"./uartstdio.obj"
+"/Users/luisaseiter/Documents/GitHub/Gruppe08/libraries/PWM_CLASS_LIB.lib"
+"/Users/luisaseiter/Documents/KIT/MIT/2. Semester/ITAT/ITAT Praktikum/TivaWare_C_Series-2.1.4.178/driverlib/ccs/Debug/driverlib.lib"
+"../tm4c123gh6pm.cmd"
+-llibc.a
