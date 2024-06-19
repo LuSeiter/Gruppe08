@@ -60,6 +60,19 @@ void PWM::setFreq(uint32_t freq)
 
     //TODO: Put your code here -> A3.1
 
+
+
+    // Enable the PWM0 peripheral
+       //
+       SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0);
+       // Wait for the PWM0 module to be ready.
+       //
+       while(!SysCtlPeripheralReady(SYSCTL_PERIPH_PWM0))
+       {
+
+
+
+       }
 }
 
 void PWM::setDuty(float duty)
@@ -75,6 +88,37 @@ void PWM::setDuty(float duty)
 
 
     //TODO: Put your code here -> A3.1
+
+
+
+
+    // Configure the PWM generator for count down mode with immediate updates
+    // to the parameters.
+    //
+    PWMGenConfigure(PWM_BASE, PWM_GEN_0,
+                    PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC);
+
+    //period for 5k HZ, 1/5000= 0,0002, mit dreisatzt to 800000 clock ticks
+    PWMGenPeriodSet(PWM_BASE, PWM_GEN_0, 800000);
+
+    //
+    // Set the pulse width of PWM0 for a 25% duty cycle.
+    //
+    PWMPulseWidthSet(PWM_BASE, PWM_OUT_0, 2000000);
+    //
+    // Set the pulse width of PWM1 for a 75% duty cycle.
+    //
+    PWMPulseWidthSet(PWM_BASE, PWM_OUT_1, 600000);
+    //
+    // Start the timers in generator 0.
+    //
+    PWMGenEnable(PWM_BASE, PWM_GEN_0);
+    //
+    // Enable the outputs.
+    //
+    PWMOutputState(PWM_BASE, (PWM_OUT_0_BIT | PWM_OUT_1_BIT), true);
+
+
 
 }
 
