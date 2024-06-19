@@ -95,6 +95,7 @@ void PWM::setDuty(float duty)
     // Configure the PWM generator for count down mode with immediate updates
     // to the parameters.
     //
+
     PWMGenConfigure(PWM_BASE, PWM_GEN_0,
                     PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC);
 
